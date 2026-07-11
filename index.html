@@ -13,6 +13,7 @@
 <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
 
 </head>
+<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 
 <body>
 
@@ -26,17 +27,21 @@
 
 </div>
 
-<a-scene style="display:none;">
+<a-scene
+    embedded
+    vr-mode-ui="enabled: false"
+    renderer="alpha: true"
+    arjs="sourceType: webcam; videoTexture: true;"
+    style="display:none;">
 
     <!-- Semua asset dimasukkan di sini -->
     <a-assets>
 
         <video
             id="videoDiabetes"
-            src="videos/video edukasi diabetes.mp4"
+            src="videos/video-edukasi-diabetes.mp4"
             autoplay
             loop
-            muted
             playsinline
             webkit-playsinline>
         </video>
@@ -48,7 +53,7 @@
 
     <!-- VIDEO -->
     <a-video
-        src="#video edukasi diabetes.mp4"
+        src="#videoDiabetes"
         position="-4 1 0"
         rotation="0 90 0"
         width="2"
@@ -58,46 +63,142 @@
     <!-- DEPAN -->
     <a-image
         src="images/caution.png"
-        position="0.8 1.8 -4"
-        width="2.5"
-        height="2.5">
+        position="0 1.7 -4"
+        width="2.8"
+        height="1.8">
     </a-image>
 
     <a-image
         src="images/360 content.png"
-        position="0.8 0.5 -3.5"
+        position="0.1 0.5 -3.5"
         width="2.5"
         height="1.8">
     </a-image>
 
-    <!-- KANAN -->
     <a-image
-        src="images/berapa banyak sih.png"
-        position="4 4 0"
-        rotation="0 -90 0"
-        width="5"
+        src="images/trap cake.png"
+        position="0 4.1 -4"
+        width="3.5"
         height="3">
     </a-image>
 
     <a-image
-        src="images/choco cake new.png"
-        position="4 2.3 -2.5"
-        rotation="0 -90 0"
-        width="1.7"
+        src="images/sign danger.png"
+        position="3 2 -4"
+         rotation="0 -25 0"
+        width="1.5"
         height="1.7">
     </a-image>
 
     <a-image
-        src="images/coca cola new.png"
-        position="4 2.5 0"
+        src="images/sign stop.png"
+        position="-3 2 -4"
+         rotation="0 25 0"
+        width="1.4"
+        height="1.5">
+    </a-image>
+
+
+    <!-- KANAN -->
+    <a-image
+        src="images/berapa banyak sih.png"
+        position="4.5 4 1.1"
+        rotation="0 -90 0"
+        width="6"
+        height="1">
+    </a-image>
+
+    <a-image
+        src="images/choco cake new.png"
+        position="4.5 2.5 -2.7"
         rotation="0 -90 0"
         width="1.5"
         height="1.5">
     </a-image>
 
     <a-image
+        src="images/Choco text.png"
+        position="4.5 2.5 -1.2"
+        rotation="0 -90 0"
+        width="1.2"
+        height="1">
+    </a-image>
+
+    <a-image
+        src="images/coca cola new.png"
+        position="4.5 2.5 0"
+        rotation="0 -90 0"
+        width="1"
+        height="1.5">
+    </a-image>
+
+    <a-image
+        src="images/soda.png"
+        position="4.5 2.5 1.1"
+        rotation="0 -90 0"
+        width="1.3"
+        height="1">
+    </a-image>
+
+    <a-image
         src="images/cookies new.png"
-        position="4 2.5 2.5"
+        position="4.5 2.5 2.5"
+        rotation="0 -90 0"
+        width="1.5"
+        height="1.5">
+    </a-image>
+
+    <a-image
+        src="images/soft cookies.png"
+        position="4.5 2.5 4"
+        rotation="0 -90 0"
+        width="2"
+        height="1.5">
+    </a-image>
+
+    <a-image
+        src="images/dubai chewy new.png"
+        position="4.5 0.8 2.7"
+        rotation="0 -90 0"
+        width="1.5"
+        height="1.1">
+    </a-image>
+
+    <a-image
+        src="images/dubai text.png"
+        position="4.5 0.8 4.1"
+        rotation="0 -90 0"
+        width="1.2"
+        height="1">
+    </a-image>
+
+    <a-image
+        src="images/eskrim new.png"
+        position="4.5 0.8 0"
+        rotation="0 -90 0"
+        width="1.5"
+        height="1.3">
+    </a-image>
+
+    <a-image
+        src="images/ice cream.png"
+        position="4.5 0.8 1.3"
+        rotation="0 -90 0"
+        width="1.5"
+        height="1.5">
+    </a-image>
+
+    <a-image
+        src="images/matcha cih fix.png"
+        position="4.5 0.8 -2.7"
+        rotation="0 -90 0"
+        width="1.2"
+        height="1.5">
+    </a-image>
+
+    <a-image
+        src="images/matcha.png"
+        position="4.5 0.8 -1.5"
         rotation="0 -90 0"
         width="1.5"
         height="1.5">
@@ -106,23 +207,23 @@
     <!-- KIRI -->
     <a-image
         src="images/data dan survei.png"
-        position="-4 4 0"
+        position="-4.5 4 0"
         rotation="0 90 0"
-        width="6"
-        height="3">
+        width="7"
+        height="1.3">
     </a-image>
 
     <a-image
-        src="images/beberapa kasus.png"
-        position="-4 3 0"
+        src="images/Beberapa Kasus.png"
+        position="-4.5 3 0"
         rotation="0 90 0"
-        width="4"
-        height="2.5">
+        width="6"
+        height="0.5">
     </a-image>
 
         <a-image
         src="images/berita 2.jpeg"
-        position="-4 1 -2.5"
+        position="-4.2 1 -2.5"
         rotation="0 90 0"
         width="2"
         height="3">
@@ -130,7 +231,7 @@
 
          <a-image
         src="images/berita 3.jpeg"
-        position="-4 1 2.5"
+        position="-4.2 1 2.5"
         rotation="0 90 0"
         width="2"
         height="3">
@@ -138,11 +239,27 @@
 
     <!-- BELAKANG -->
     <a-image
-        src="images/caution.png"
-        position="0 1.6 4"
+        src="images/who.png"
+        position="0 3.3 3.7"
         rotation="0 180 0"
-        width="3"
-        height="3">
+        width="6"
+        height="1.5">
+    </a-image>
+
+    <a-image
+        src="images/who source.png"
+        position="0 2.2 3.7"
+        rotation="0 180 0"
+        width="4.5"
+        height="0.5">
+    </a-image>
+
+    <a-image
+        src="images/logo sweet trap.png"
+        position="0 1.3 3.7"
+        rotation="0 180 0"
+        width="1.5"
+        height="1.5">
     </a-image>
 
     <!-- Lantai -->
@@ -166,10 +283,9 @@
     </a-light>
 
     <a-entity
-        camera
-        look-controls="pointerLockEnabled: false"
-        wasd-controls
-        position="0 1.6 0">
+    camera
+    look-controls="magicWindowTrackingEnabled:true"
+    position="0 1.6 0">
     </a-entity>
 
 </a-scene>

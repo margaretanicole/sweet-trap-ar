@@ -32,4 +32,9 @@ window.addEventListener("load", () => {
 
     });
 
+});const scene = document.querySelector("a-scene");
+
+scene.addEventListener("loaded", () => {
+    const video = document.getElementById("videoDiabetes");
+    video.play();
 });
