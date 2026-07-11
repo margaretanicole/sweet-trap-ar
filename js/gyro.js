@@ -1,40 +1,20 @@
-window.addEventListener("load", () => {
+const scene = document.querySelector("a-scene");
+const startScreen = document.getElementById("startScreen");
+const startButton = document.getElementById("startButton");
 
-    const button = document.getElementById("startButton");
+startButton.addEventListener("click", () => {
+    startScreen.style.display = "none";
+    scene.style.display = "block";
 
-    button.addEventListener("click", async () => {
+    if (typeof DeviceOrientationEvent !== "undefined" &&
+        typeof DeviceOrientationEvent.requestPermission === "function") {
 
-        // iPhone
-        if (
-            typeof DeviceOrientationEvent !== "undefined" &&
-            typeof DeviceOrientationEvent.requestPermission === "function"
-        ) {
-
-            const permission =
-                await DeviceOrientationEvent.requestPermission();
-
-            if (permission === "granted") {
-
-                document.querySelector("a-scene").style.display = "block";
-                document.getElementById("startScreen").style.display = "none";
-
-            }
-
-        }
-
-        // Android
-        else {
-
-            document.querySelector("a-scene").style.display = "block";
-            document.getElementById("startScreen").style.display = "none";
-
-        }
-
-    });
-
-});const scene = document.querySelector("a-scene");
-
-scene.addEventListener("loaded", () => {
-    const video = document.getElementById("videoDiabetes");
-    video.play();
+        DeviceOrientationEvent.requestPermission()
+            .then(permissionState => {
+                if (permissionState === "granted") {
+                    console.log("Gyroscope aktif");
+                }
+            })
+            .catch(console.error);
+    }
 });
